@@ -8,6 +8,12 @@
 </head>
 <body>
     <h1>Django</h1>
+
+    {% for post in post_list %}
+        <h2>{{ post.title }}</h2>
+        <h4>{{ post.created_at }}</h4>
+        <p>{{ post.content }}</p>
+    {% endfor %}
     
 </body>
 </html>
