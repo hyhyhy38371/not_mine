@@ -6,4 +6,5 @@ urlpatterns = [
     path("<int:pk>/", views.memory_detail),
     path("new/", views.memory_new),
     path("<int:pk>/edit/", views.memory_edit),
+    path("<int:pk>/delete/", views.memory_delete),
 ]

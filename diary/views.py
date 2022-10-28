@@ -52,3 +52,20 @@ def memory_edit(request, pk):
     return render(request, "diary/memory_form.html", {
         "form": form,
     })
+
+
+def memory_delete(request, pk):
+    memory = Memory.objects.get(pk=pk)
+
+    # delete memory
+    if request.method == "POST":
+        memory.delete()
+        return redirect("/diary/")
+
+    return render(request, "diary/memory_confirm_delete.html", {
+        "memory": memory,
+    })
+
+
+
+
