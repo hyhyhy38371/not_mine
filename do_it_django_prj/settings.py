@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'diary',
     'single_pages',
     'debug_toolbar',
+    'django'
 ]
 
 MIDDLEWARE = [
