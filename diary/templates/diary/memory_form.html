@@ -1,11 +1,10 @@
 {% extends "diary/base.html" %}
+{% load django_bootstrap5 %}
 
 {% block content %}
     <form action="" method="post" novalidate>
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <input type="submit" />
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-primary" />
     </form>
 {% endblock %}
