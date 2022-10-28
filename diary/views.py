@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 
 from diary.forms import MemoryForm
@@ -24,6 +25,7 @@ def memory_new(request):
         if form.is_valid():
             # form.cleaned_data
             memory = form.save()
+            messages.success(request, "메모리를 생성했습니다.")
             # return redirect(f"/diary/{memory.pk}/")
             # return redirect(memory.get_absolute_url())
             return redirect(memory)
@@ -43,6 +45,7 @@ def memory_edit(request, pk):
         if form.is_valid():
             # form.cleaned_data
             memory = form.save()
+            messages.success(request, "메모리를 저장했습니다.")
             # return redirect(f"/diary/{memory.pk}/")
             # return redirect(memory.get_absolute_url())
             return redirect(memory)
@@ -60,6 +63,7 @@ def memory_delete(request, pk):
     # delete memory
     if request.method == "POST":
         memory.delete()
+        messages.success(request, "메모리를 삭제했습니다.")
         return redirect("/diary/")
 
     return render(request, "diary/memory_confirm_delete.html", {
